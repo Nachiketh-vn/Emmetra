@@ -1,101 +1,133 @@
-import Image from "next/image";
+"use client"; // Ensures this is a client-side rendered component
+import { useEffect, useState } from "react";
+import { Spotlight } from "../app/components/ui/Spotlight";
+import { Cover } from "../app/components/ui/cover";
+import Link from "next/link";
+import { CiUser } from "react-icons/ci";
+import { FaAngleDoubleDown } from "react-icons/fa";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isClient, setIsClient] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // Ensure rendering happens on the client only to prevent hydration issues
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
+
+  return (
+    <div className="w-full flex-col md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+      <div className="h-[48rem] w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex flex-col items-center justify-center">
+        {/* Radial gradient for the container to give a faded look */}
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+
+        {/* Name Section */}
+        <div className="-mt-36 flex gap-2 justify-center items-center   md:-mt-36  text-center">
+          <CiUser className="text-white text-lg font-bold" />
+          <h1 className="text-white font-semibold">Nachiketh Neelaraddi</h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Title Section */}
+        <p className="text-4xl sm:text-7xl h-[6rem] font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 mt-8">
+          Emmetra{" "}
+          <span className="text-blue-500">
+            <Cover>Assignment-2</Cover>
+          </span>
+        </p>
+
+        {/* Description Section */}
+        <p className="text-center px-[5vw] md:py-4 md:px-[10vw] text-lg font-semibold text-white md:mt-6">
+          "This website is created for Assignment-2, provided by Emmetra,
+          demonstrating modern web development techniques. It showcases the
+          implementation of the project requirements, aligning with the provided
+          guidelines."
+        </p>
+
+        {/* Technology Section */}
+        <div className="pt-8 flex flex-col items-center justify-center px-4">
+          <h1 className="text-white text-xl sm:text-xl font-semibold text-center mb-6">
+            Technology Used
+          </h1>
+          <div>
+            <ul className="flex flex-wrap justify-center gap-8 text-[#999999] text-xl sm:text-3xl font-semibold">
+              <li className="transition-transform duration-300 transform hover:scale-110">
+                Next.js
+              </li>
+              <li className="transition-transform duration-300 transform hover:scale-110">
+                TypeScript
+              </li>
+              <li className="transition-transform duration-300 transform hover:scale-110">
+                Tailwind CSS
+              </li>
+              <li className="transition-transform duration-300 transform hover:scale-110">
+                Framer Motion
+              </li>
+              <li className="transition-transform duration-300 transform hover:scale-110">
+                Aceternity UI
+              </li>
+              <li className="transition-transform duration-300 transform hover:scale-110">
+                Vercel
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Button Section */}
+        <div className="pt-8 md:pt-16 flex justify-center gap-8 sm:gap-16 md:gap-20">
+          <div>
+            <Link
+              href={
+                "https://drive.google.com/file/d/1f6oaMgomWpytGoISjVstS_5Q1isePtvU/view?usp=sharing"
+              }
+              className="text-white"
+            >
+              <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block transform transition-transform duration-300 group-hover:scale-110">
+                <span className="absolute inset-0 overflow-hidden rounded-full">
+                  <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </span>
+                <div className="relative text-lg flex items-center space-x-2 z-10 rounded-full bg-zinc-950 py-2 px-4 ring-1 ring-white/10">
+                  <span className="flex items-center">Open Resume</span>
+                  <svg
+                    fill="none"
+                    height="32"
+                    width="32"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="flex-shrink-0"
+                  >
+                    <path
+                      d="M10.75 8.75L14.25 12L10.75 15.25"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </div>
+                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+              </button>
+            </Link>
+          </div>
+          <div>
+            <Link href={""} className="text-white">
+              <button className="p-[3px] relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
+                <div className="px-8 py-2 bg-black rounded-full relative group transition duration-200 text-white hover:bg-transparent">
+                  Contact Info
+                </div>
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div>
+          <FaAngleDoubleDown className="relative top-6 md:top-14 left-5 text-2xl text-white animate-bounce" />
+        </div>
+      </div>
     </div>
   );
 }
