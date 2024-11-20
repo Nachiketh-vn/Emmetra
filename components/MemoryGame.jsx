@@ -49,9 +49,20 @@ const MemoryGame = ({ taskIndex, onComplete }) => {
       setFlippedIndices([]);
     }
   };
+  const closeGame = () => {
+    // Reset the game state
+    setCards([]);
+    setFlippedIndices([]);
+    setMatchedPairs(0);
+    setDisabled(false);
+
+    // Notify that the game is closed
+    onComplete("close", taskIndex);
+  };
+
 
   return (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center">
+    <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center z-20">
       <h2 className="text-2xl font-bold mb-4">Memory Game</h2>
       <div className="grid grid-cols-4 gap-4">
         {cards.map((card, index) => (
@@ -64,6 +75,15 @@ const MemoryGame = ({ taskIndex, onComplete }) => {
             {card.flipped || card.matched ? card.value : "?"}
           </button>
         ))}
+      </div>
+
+      <div className="flex space-x-4 pt-4">
+        <button
+          className="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+          onClick={closeGame}
+        >
+          Close Game
+        </button>
       </div>
     </div>
   );

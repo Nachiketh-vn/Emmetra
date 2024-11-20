@@ -202,8 +202,8 @@ import AnalogClock from "./clock";
 import React, { useEffect, useState } from "react";
 import TicTacToe from "./TicTacToe"; // Placeholder for Task 1 game
 import MemoryGame from "./MemoryGame"; // Placeholder for Task 2 game
-import PuzzleGame from "./PuzzleGame"; // Placeholder for Task 3 game
-import MazeGame from "./MazeGame"; // Placeholder for Task 4 game
+import SudokuGame from "./PuzzleGame"; // Placeholder for Task 3 game
+import NumberGuessingGame from "./MazeGame"; // Placeholder for Task 4 game
 import { FaAngleRight } from "react-icons/fa";
 
 const TasksPage = () => {
@@ -218,7 +218,7 @@ const TasksPage = () => {
   const [showOptions, setShowOptions] = useState(false); // Whether to show options or not
   const [taskIndex, setTaskIndex] = useState(null); // Current task index
   const tasks = ["Task 1", "Task 2", "Task 3", "Task 4"];
-  const games = [TicTacToe, MemoryGame, PuzzleGame, MazeGame]; // Task games
+  const games = [TicTacToe, NumberGuessingGame, MemoryGame, SudokuGame]; // Task games
 
   const taskOptions = [
     // Task 1 options
@@ -305,7 +305,7 @@ const TasksPage = () => {
       <div className="flex -mt-40 justify-around items-center w-full text-white min-h-screen relative">
         {/* Overlay for active game */}
         {activeGame !== null && (
-          <div className="absolute inset-0 bg-black/70 flex items-center justify-center z-10">
+          <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
             {React.createElement(games[activeGame], {
               taskIndex: activeGame,
               onComplete: (result) => handleGameCompletion(result, activeGame),
@@ -317,7 +317,7 @@ const TasksPage = () => {
         <div
           className={`${
             activeGame !== null ? "opacity-50 pointer-events-none" : ""
-          } flex flex-col items-center justify-center z-20`}
+          } flex flex-col items-center justify-center z-10`}
         >
           <h1 className="text-3xl font-bold mb-6 text-center">Tasks</h1>
           <p className="text-gray-400 mb-8 text-center">
@@ -395,4 +395,3 @@ const TasksPage = () => {
 };
 
 export default TasksPage;
-

@@ -1,99 +1,64 @@
-// File: MazeGame.jsx
 import React, { useState } from "react";
 
-const MazeGame = ({ taskIndex, onComplete }) => {
-  const mazeSize = 5;
-  const [playerPosition, setPlayerPosition] = useState({ x: 0, y: 0 });
-  const [exitPosition] = useState({ x: mazeSize - 1, y: mazeSize - 1 });
+const NumberGuessingGame = ({ taskIndex, onComplete }) => {
+  const [randomNumber] = useState(Math.floor(Math.random() * 100) + 1); // Random number between 1 and 100
+  const [guess, setGuess] = useState("");
+  const [message, setMessage] = useState("");
+  const [attempts, setAttempts] = useState(0);
 
-  const movePlayer = (direction) => {
-    setPlayerPosition((prevPosition) => {
-      let newX = prevPosition.x;
-      let newY = prevPosition.y;
-      switch (direction) {
-        case "up":
-          newX = Math.max(0, newX - 1);
-          break;
-        case "down":
-          newX = Math.min(mazeSize - 1, newX + 1);
-          break;
-        case "left":
-          newY = Math.max(0, newY - 1);
-          break;
-        case "right":
-          newY = Math.min(mazeSize - 1, newY + 1);
-          break;
-        default:
-          break;
-      }
-      const newPosition = { x: newX, y: newY };
-      if (
-        newPosition.x === exitPosition.x &&
-        newPosition.y === exitPosition.y
-      ) {
-        onComplete("win", taskIndex);
-      }
-      return newPosition;
-    });
+  const handleGuess = () => {
+    const userGuess = parseInt(guess, 10);
+    if (isNaN(userGuess)) {
+      setMessage("Please enter a valid number.");
+      return;
+    }
+
+    setAttempts((prev) => prev + 1);
+
+    if (userGuess === randomNumber) {
+      setMessage(`🎉 Correct! You guessed it in ${attempts + 1} attempts.`);
+      onComplete("win", taskIndex); // Notify parent of completion
+    } else if (userGuess < randomNumber) {
+      setMessage("Too low! Try again.");
+    } else {
+      setMessage("Too high! Try again.");
+    }
+
+    setGuess(""); // Clear input field
   };
 
-  const handleKeyPress = (event) => {
-    switch (event.key) {
-      case "ArrowUp":
-        movePlayer("up");
-        break;
-      case "ArrowDown":
-        movePlayer("down");
-        break;
-      case "ArrowLeft":
-        movePlayer("left");
-        break;
-      case "ArrowRight":
-        movePlayer("right");
-        break;
-      default:
-        break;
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
-
-  const renderMaze = () => {
-    let maze = [];
-    for (let i = 0; i < mazeSize; i++) {
-      let row = [];
-      for (let j = 0; j < mazeSize; j++) {
-        if (playerPosition.x === i && playerPosition.y === j) {
-          row.push("P");
-        } else if (exitPosition.x === i && exitPosition.y === j) {
-          row.push("E");
-        } else {
-          row.push(".");
-        }
-      }
-      maze.push(row);
-    }
-    return maze;
+  const closeGame = () => {
+    setMessage("Game closed without completion.");
+    onComplete("close", taskIndex); // Notify parent of closure
   };
 
   return (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center">
-      <h2 className="text-2xl font-bold mb-4">Maze Game</h2>
-      <div className="text-xl">
-        {renderMaze().map((row, index) => (
-          <div key={index}>{row.join(" ")}</div>
-        ))}
-      </div>
-      <p className="text-gray-400 mt-4">
-        Use arrow keys to move the player "P" to the exit "E".
-      </p>
+    <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center z-20">
+      <h2 className="text-2xl font-bold mb-4">Number Guessing Game</h2>
+      <p className="text-gray-400 mb-4">Guess the number between 1 and 100!</p>
+      <input
+        type="number"
+        value={guess}
+        onChange={(e) => setGuess(e.target.value)}
+        className="px-4 py-2 text-black rounded-md"
+        placeholder="Enter your guess"
+      />
+      <button
+        onClick={handleGuess}
+        className="ml-2 px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+      >
+        Guess
+      </button>
+      <button
+        onClick={closeGame}
+        className="ml-4 px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600"
+      >
+        Close Game
+      </button>
+      <p className="mt-4 text-gray-300">{message}</p>
+      <p className="text-gray-500">Attempts: {attempts}</p>
     </div>
   );
 };
 
-export default MazeGame;
+export default NumberGuessingGame;

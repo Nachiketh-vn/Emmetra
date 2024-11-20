@@ -87,13 +87,13 @@ const TicTacToe = ({ taskIndex, onComplete }) => {
   };
 
   return (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center">
+    <div className="bg-gray-800 p-6 rounded-lg shadow-md text-center z-20">
       <h2 className="text-2xl font-bold mb-4">Tic Tac Toe</h2>
       <div className="grid grid-cols-3 gap-2 mb-4">
         {board.map((value, index) => (
           <button
             key={index}
-            className="w-16 h-16 text-2xl font-bold flex items-center justify-center bg-gray-700 border-2 border-gray-600"
+            className="w-16 h-16 text-2xl font-bold flex items-center justify-center bg-gray-700 border-2 border-gray-600 "
             onClick={() => handleClick(index)}
             disabled={value !== null || isBotTurn} // Disable button if already clicked or it's bot's turn
           >
