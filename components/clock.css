@@ -1,0 +1,134 @@
+.clock {
+  width: 200px; /* Reduced size */
+  height: 200px;
+  background: gray;
+  border-radius: 50%;
+  border: 10px solid #333; /* Adjusted border */
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 1.5vw 3vw -1vw rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+  width: 15px; /* Adjusted dot size */
+  height: 15px;
+  border-radius: 50%;
+  background: #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 10;
+  box-shadow: 0 1px 3px -1px black;
+}
+
+.hour {
+  position: absolute;
+  font-weight: 700;
+  font-size: 16px; /* Reduced font size */
+}
+
+.twelve {
+  top: 1px;
+  left: 46%;
+}
+
+.one {
+  top: 8%;
+  right: 25%;
+}
+
+.eleven {
+  top: 7%;
+  left: 25%;
+}
+
+.two {
+  top: 22%;
+  right: 9%;
+}
+
+.three {
+  right: 5px;
+  top: 45%;
+}
+
+.four {
+  right: 20px;
+  top: 65%;
+}
+
+.five {
+  right: 47px;
+  top: 79%;
+}
+
+.six {
+  bottom: 5px;
+  left: 48%;
+}
+
+.seven {
+  left: 50px;
+  top: 79%;
+}
+
+.eight {
+  left: 19px;
+  top: 62%;
+}
+
+.nine {
+  left: 7px;
+  top: 41%;
+}
+
+.ten {
+  top: 20%;
+  left: 9%;
+}
+
+/* Updated Hand Styles */
+.hour-hand {
+  position: absolute;
+  z-index: 5;
+  width: 3px; /* Reduced width */
+  height: 50px; /* Adjusted height */
+  background-color: #333;
+  top: 40px; /* 100px (center) - 50px (height) */
+  left: 50%;
+  transform-origin: 50% 100%; /* Pivot at the base of the hand */
+  margin-left: -1.5px; /* Half of the width to center the hand */
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.minute-hand {
+  position: absolute;
+  z-index: 6;
+  width: 3px; /* Reduced width */
+  height: 80px; /* Adjusted height */
+  background-color: #666;
+  top: 13px; /* 100px (center) - 80px (height) */
+  left: 50%;
+  transform-origin: 50% 100%; /* Pivot at the base of the hand */
+  margin-left: -1.5px; /* Half of the width to center the hand */
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.second-hand {
+  position: absolute;
+  z-index: 7;
+  width: 2px;
+  height: 80px; /* Adjusted height */
+  background-color: red;
+  top: 12px; /* 100px (center) - 80px (height) */
+  left: 50%;
+  transform-origin: 50% 100%; /* Pivot at the base of the hand */
+  margin-left: -1px; /* Half of the width to center the hand */
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}

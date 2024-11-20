@@ -5,6 +5,19 @@ import { Cover } from "../app/components/ui/cover";
 import Link from "next/link";
 import { CiUser } from "react-icons/ci";
 import { FaAngleDoubleDown } from "react-icons/fa";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+import TasksPage from "../components/taskPage";
+
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -41,7 +54,7 @@ export default function Home() {
         </p>
 
         {/* Description Section */}
-        <p className="text-center px-[5vw] md:py-4 md:px-[10vw] text-lg font-semibold text-white md:mt-6">
+        <p className="text-center px-[5vw] md:py-4 md:px-[10vw] text-lg font-semibold text-[#7B8383] md:mt-6">
           "This website is created for Assignment-2, provided by Emmetra,
           demonstrating modern web development techniques. It showcases the
           implementation of the project requirements, aligning with the provided
@@ -118,7 +131,35 @@ export default function Home() {
               <button className="p-[3px] relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
                 <div className="px-8 py-2 bg-black rounded-full relative group transition duration-200 text-white hover:bg-transparent">
-                  Contact Info
+                  <DropdownMenu>
+                    <DropdownMenuTrigger>Contact Info</DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuLabel>
+                        Mobile : +91 8431615084
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuLabel>
+                        Email : nachikethnraddi@gmail.com
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>
+                        <Link
+                          href={""}
+                          className="flex justify-center gap-2 items-center"
+                        >
+                          <FaGithub className="text-2xl " /> Github
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link
+                          href={""}
+                          className="flex justify-center gap-2 items-center"
+                        >
+                          <FaLinkedin className="text-2xl" /> LinkedIn
+                        </Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </button>
             </Link>
@@ -128,6 +169,8 @@ export default function Home() {
           <FaAngleDoubleDown className="relative top-6 md:top-14 left-5 text-2xl text-white animate-bounce" />
         </div>
       </div>
+
+      <TasksPage />
     </div>
   );
 }
