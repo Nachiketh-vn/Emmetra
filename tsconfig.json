@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/TicTacToe.jsx", "components/taskPage.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/TicTacToe.jsx", "components/taskPage.jsx", "components/clock.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./clock.css";
 
-const AnalogClock = () => {
+const AnalogClock = ({option1,option2,option3,option4}) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -10,9 +10,16 @@ const AnalogClock = () => {
     }, 1000);
   }, []);
 
+  const clockStyles =
+    option1 === "color1"
+      ? "bg-[#164e63]" // Styling for color1
+      : option1 === "color2"
+      ? "bg-[#831843] " // Styling for color2
+      : "bg-[#3C3C3C]"; // Default styling for current or others
+
   return (
-    <div className="clock">
-      <div className="dot"></div>
+    <div className={`clock ${clockStyles}`}>
+      <div className="dot "></div>
       <div className="hour twelve">12</div>
       <div className="hour one">1</div>
       <div className="hour two">2</div>

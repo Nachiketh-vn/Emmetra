@@ -1,7 +1,6 @@
 .clock {
   width: 200px; /* Reduced size */
   height: 200px;
-  background: rgb(60, 60, 60);
   border-radius: 50%;
   border: 10px solid rgb(128, 128, 128); /* Adjusted border */
   position: relative;
