@@ -34,7 +34,7 @@ const TicTacToe = ({ taskIndex, onComplete }) => {
     const newBoard = [...board];
     newBoard[index] = "X"; // User plays "X"
     setBoard(newBoard);
-    setIsXNext(false); // Switch turn to bot
+    setIsBotTurn(true); // Switch turn to bot
 
     if (checkWinner(newBoard)) {
       onComplete("win", taskIndex); // User wins
@@ -79,7 +79,6 @@ const TicTacToe = ({ taskIndex, onComplete }) => {
   // Close game and reset without marking as completed
   const closeGame = () => {
     setBoard(Array(9).fill(null));
-    setIsXNext(true);
     setIsBotTurn(false);
     setGameStatus("Game Closed");
     onComplete("close", taskIndex); // Mark task as closed without completing it
