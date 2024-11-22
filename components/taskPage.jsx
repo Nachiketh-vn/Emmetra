@@ -1,6 +1,6 @@
 "use client";
 import AnalogClock from "./clock";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TicTacToe from "./TicTacToe"; // Placeholder for Task 1 game
 import MemoryGame from "./MemoryGame"; // Placeholder for Task 2 game
 import SudokuGame from "./PuzzleGame"; // Placeholder for Task 3 game
