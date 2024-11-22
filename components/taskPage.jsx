@@ -36,18 +36,12 @@ const TasksPage = () => {
     ],
     // Task 3 options
     [
-      { label: "Circle", value: "circle" },
-      { label: "Square", value: "square" },
-      { label: "Triangle", value: "triangle" },
-      { label: "Hexagon", value: "hexagon" },
+      { label: "Add StopWatch", value: "stopwatch" },
       { label: "Keep Current option", value: "current" },
     ],
     // Task 4 options
     [
-      { label: "Easy", value: "easy" },
-      { label: "Medium", value: "medium" },
-      { label: "Hard", value: "hard" },
-      { label: "Extreme", value: "extreme" },
+      { label: "Add Alarm", value: "alarm" },
       { label: "Keep Current option", value: "current" },
     ],
   ];

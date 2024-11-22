@@ -12,6 +12,7 @@ const NumberGuessingGame = ({ taskIndex, onComplete }) => {
       setMessage("Please enter a valid number.");
       return;
     }
+    console.log(randomNumber);
 
     setAttempts((prev) => prev + 1);
 
