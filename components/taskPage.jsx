@@ -8,7 +8,7 @@ import NumberGuessingGame from "./MazeGame"; // Placeholder for Task 4 game
 import { FaAngleRight } from "react-icons/fa";
 
 const TasksPage = () => {
-  const [time, setTime] = useState(new Date());
+  // const [time, setTime] = useState(new Date());
   const [completedTasks, setCompletedTasks] = useState(0); // Tracks completed tasks
   const [activeGame, setActiveGame] = useState(null); // Tracks active game
   const [gameResults, setGameResults] = useState(Array(4).fill(null)); // Tracks results of each task
@@ -88,13 +88,7 @@ const TasksPage = () => {
   };
 
   // Update the time every second
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   return (
     <div className="h-[36rem] w-full dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex items-center justify-center">

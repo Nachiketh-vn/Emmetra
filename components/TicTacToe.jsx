@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const TicTacToe = ({ taskIndex, onComplete }) => {
   const [board, setBoard] = useState(Array(9).fill(null));
-  const [isXNext, setIsXNext] = useState(true); // User's turn
   const [isBotTurn, setIsBotTurn] = useState(false); // Bot's turn
   const [gameStatus, setGameStatus] = useState("In Progress"); // Game status
 

@@ -55,10 +55,10 @@ export default function Home() {
 
         {/* Description Section */}
         <p className="text-center px-[5vw] md:py-4 md:px-[10vw] text-lg font-semibold text-[#7B8383] md:mt-6">
-          "This website is created for Assignment-2, provided by Emmetra,
+          &quot;This website is created for Assignment-2, provided by Emmetra,
           demonstrating modern web development techniques. It showcases the
           implementation of the project requirements, aligning with the provided
-          guidelines."
+          guidelines.&quot;
         </p>
 
         {/* Technology Section */}
