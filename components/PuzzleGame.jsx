@@ -15,17 +15,17 @@ const SudokuGame = ({ taskIndex, onComplete }) => {
     // [null, null, null, null, 8, null, null, 7, 9],
     // ];
     [
-      [5, null, 4, null, 7, null, 9, 1, 2],
-      [6, 7, 2, null, 9, 5, 3, 4, 8],
-      [1, null, null, 3, null, 2, null, 6, 7],
-      [null, 5, null, 7, 6, 1, null, null, 3],
-      [4, 2, null, 8, 5, 3, null, 9, 1],
-      [null, 1, 3, null, null, 4, null, 5, 6],
-      [9, null, 1, null, 3, 7, 2, 8, null],
-      [null, 8, 7, null, null, 9, null, 3, 5],
-      [3, null, 5, 2, 8, 6, 1, null, 9],
+    [5, null, 4, null, 7, null, 9, 1, 2],
+    [6, 7, 2, null, 9, 5, 3, 4, 8],
+    [1, null, null, 3, null, 2, null, 6, 7],
+    [null, 5, null, 7, 6, 1, null, null, 3],
+    [4, 2, null, 8, 5, 3, null, 9, 1],
+    [null, 1, 3, null, null, 4, null, 5, 6],
+    [9, null, 1, null, 3, 7, 2, 8, null],
+    [null, 8, 7, null, null, 9, null, 3, 5],
+    [3, null, 5, 2, 8, 6, 1, null, 9],
     ];
-  
+    
 
   const solutionBoard = [
     [5, 3, 4, 6, 7, 8, 9, 1, 2],

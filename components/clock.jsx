@@ -86,8 +86,8 @@ const AnalogClock = ({option1,option2,option3,option4}) => {
           onClick={handleStartPause}
           onDoubleClick={handleReset}
         >
-          <div className="bg-[#808080] group-hover:bg-gray-600 h-4 w-3 relative -top-[165.5px] left-[7px]"></div>
-          <div className="relative bg-[#808080] group-hover:bg-gray-600 h-2 w-6 left-[px] -top-[190px]"></div>
+          <div className="bg-[#808080] group-hover:bg-gray-600 h-4 w-3 relative -top-[165px] left-[7px]"></div>
+          <div className="relative bg-[#808080] group-hover:bg-gray-600 h-2 w-6 left-[0.8px] -top-[189px]"></div>
         </div>
 
         <div className="flex-col space-y-2 mt-8 justify-center items-center">

@@ -130,7 +130,7 @@ export default function Home() {
             <Link href={""} className="text-white">
               <button className="p-[3px] relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
-                <div className="px-8 py-2 bg-black rounded-full relative group transition duration-200 text-white hover:bg-transparent">
+                <div className="px-8 py-3 bg-black rounded-full relative group transition duration-200 text-white hover:bg-transparent">
                   <DropdownMenu>
                     <DropdownMenuTrigger>Contact Info</DropdownMenuTrigger>
                     <DropdownMenuContent>
