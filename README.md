@@ -61,7 +61,7 @@ As users complete each task, they unlock additional features:
 To run this project locally, follow the steps below:
 
 ### 1. Clone the Repository
-git clone https://github.com/your-username/assignment-2-web-games.git
+git clone https://github.com/Nachiketh-vn/Emmetra.git
 
 ### 2. Install dependencies
 npm install
