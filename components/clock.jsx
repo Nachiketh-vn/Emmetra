@@ -82,20 +82,12 @@ const AnalogClock = ({option1,option2,option3,option4}) => {
           {formatTime(stime)}
         </div>
         <div
-          className="cursor-pointer "
+          className="cursor-pointer group"
           onClick={handleStartPause}
           onDoubleClick={handleReset}
         >
-          <button
-            className={"bg-[#808080]  h-5 w-3 relative -top-[168px] left-[6px]"}
-          ></button>
-          <div className="relative h-2 w-6 bg-[#808080]  -left-[0.8px] -top-[200px]"></div>
-          {/* <button
-            className=" rounded-lg bg-blue-500 hover:bg-blue-600 text-lg"
-            onClick={handleReset}
-          >
-            Reset
-          </button> */}
+          <div className="bg-[#808080] group-hover:bg-gray-600 h-4 w-3 relative -top-[165.5px] left-[7px]"></div>
+          <div className="relative bg-[#808080] group-hover:bg-gray-600 h-2 w-6 left-[px] -top-[190px]"></div>
         </div>
 
         <div className="flex-col space-y-2 mt-8 justify-center items-center">
