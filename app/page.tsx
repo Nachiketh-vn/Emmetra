@@ -29,21 +29,6 @@ export default function Home() {
 
   if (!isClient) return null;
 
-  function checkScreenSize() {
-    // Show toast if screen width is less than 768px (non-PC screens)
-    if (window.innerWidth < 768) {
-      toast.error(
-        "This website is best viewed on a PC. Please switch to a larger screen for the best experience."
-      );
-    }
-  }
-
-  // Run the check on page load
-  window.addEventListener("load", checkScreenSize);
-
-  // Optionally, you can listen to resize events to show the toast dynamically
-  window.addEventListener("resize", checkScreenSize);
-
   return (
     <div className="w-full flex-col md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
